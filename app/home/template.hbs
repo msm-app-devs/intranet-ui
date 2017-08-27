@@ -1,0 +1,9 @@
+<p>home</p>
+
+{{#if attrs.employees.length}}
+  <p>employees is more than 0</p>
+{{else}}
+  <p>employees is 0</p>
+{{/if}}
+
+{{employee-list employees=attrs.employees}}
