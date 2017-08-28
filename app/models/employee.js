@@ -33,13 +33,13 @@ export default DS.Model.extend({
 
   /**
     @property startDate
-    @type date
+    @type string
   */
-  startDate: DS.attr('date'),
+  startDate: DS.attr('string'),
 
   /**
     @property birthDay
-    @type date
+    @type string
   */
-  birthDay: DS.attr('date'),
+  birthDay: DS.attr('string'),
 });

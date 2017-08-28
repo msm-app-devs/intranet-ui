@@ -1,20 +1,15 @@
-/* eslint-env node */
-'use strict';
+/* jshint node: true */
 
 module.exports = function(environment) {
-  let ENV = {
-    modulePrefix: 'intranet-ui',
-    environment,
+  var ENV = {
+    modulePrefix: 'intranet-app',
+    environment: environment,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
-      },
-      EXTEND_PROTOTYPES: {
-        // Prevent Ember Data from overriding Date.parse.
-        Date: false
       }
     },
 

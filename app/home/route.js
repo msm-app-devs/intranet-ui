@@ -1,22 +1,19 @@
 import Ember from 'ember';
-
-const {
-  Route,
-  RSVP,
-  RSVP: { hash },
-  inject: { service }
-} = Ember;
+// const {
+//   Route,
+//   RSVP,
+//   RSVP: { hash },
+//   inject: { service }
+// } = Ember;
 
 export default Ember.Route.extend({
   /**
     Fetches all `employee` from the store.
     @method model
-    @return {DS.PromiseManyArray} Collection of `LocationModel`
+    @return {DS.PromiseManyArray}
   */
-  model(params) {
-    return hash({
-        employees: this.store.query('employee', {})
-    })
+  model() {
+    return this.store.findAll('employee');
   },
 
   /**
@@ -27,9 +24,8 @@ export default Ember.Route.extend({
     @public
   */
   setupController(controller, model) {
-    debugger;
     controller.setProperties({
-      'attrs.employees': model.employees
+      'attrs.employees': model
     });
   }
 });
