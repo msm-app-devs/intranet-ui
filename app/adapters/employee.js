@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
-export default DS.JSONAPIAdapter.extend({
+export default DS.RESTAdapter.extend({
   namespace: 'api',
 
   /**
@@ -8,47 +8,31 @@ export default DS.JSONAPIAdapter.extend({
     @method download
     @return {Promise} resolves to `RecordArray`
   */
-  query() {
-    // const locationURL = this.buildURL();
-    // const url = `${locationURL}/employee`;;
+  findAll() {
     const empArray = {
-      "data": [
+      "employee": [
         {
           "id": 1,
-          "type": "employees",
-          "attributes": {
-            "externalId": 1,
-            "firstName": "John",
-            "lastName": "Owen",
-            "position": "UI Developer",
-            "team": "Mobile Team",
-            "startDate": "12.05.2016",
-            "birthDay": "05.08.1986"
-          },
-          "relationships": {
-          }
+          "externalId": 1,
+          "firstName": "John",
+          "lastName": "Owen",
+          "position": "UI Developer",
+          "team": "Mobile Team",
+          "startDate": "12.05.2016",
+          "birthDay": "05.08.1986"
         },
         {
           "id": 2,
-          "type": "employees",
-          "attributes": {
-            "type": "employees",
-            "id": 2,
-            "externalId": 2,
-            "firstName": "Michael",
-            "lastName": "Carrick",
-            "position": "UI Developer",
-            "team": "Mobile Team",
-            "startDate": "12.05.2016",
-            "birthDay": "05.08.1986"
-          },
-          "relationships": {
-          }
+          "externalId": 2,
+          "firstName": "Michael",
+          "lastName": "Carrick",
+          "position": "UI Developer",
+          "team": "Mobile Team",
+          "startDate": "12.05.2016",
+          "birthDay": "05.08.1986"
         },
         {
-          "id": 2,
-          "type": "employees",
-          "attributes": {
+          "id": 3,
           "externalId": 3,
           "firstName": "David",
           "lastName": "Bradley",
@@ -56,15 +40,17 @@ export default DS.JSONAPIAdapter.extend({
           "team": "Mobile Team",
           "startDate": "12.05.2016",
           "birthDay": "05.08.1986"
-          },
-          "relationships": {
-          }
-        },
-      ],
-      "included": [
+        }
       ]
-    }
+    };
+
     return empArray;
-    // return this.ajax(url);
   },
+
+  // findAll() {
+  //   const locationURL = this.buildURL();
+  //   const url = `${locationURL}/employee`;
+
+  //   return this.ajax('GET', url);
+  // }
 });
